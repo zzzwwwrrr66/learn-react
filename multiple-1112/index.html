@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+  
+  <script type="text/babel">
+    class Like_button extends React.Component {
+      haha = 1;
+      constructor(props){
+        super(props);
+        this.state = {
+          liked : false,
+          text : 'Like',
+        }
+      }
+      
+      render() {
+        return <button onClick={()=>{this.setState({ liked: true, text: 'liked' }); console.log('clicked');}} type="submit">{this.state.text}</button>;
+      }
+
+      click() {
+        console.log('clicked');
+      }
+      
+    }
+    
+  </script>
+  <script type="text/babel">
+    const root = document.getElementById('root');
+    ReactDOM.render(<div><Like_button /><Like_button /><Like_button /><Like_button /></div>, root);
+
+
+    /* 
+    // render(){
+      //   return e('button', 
+      //   { 
+      //     onClick: () => {
+      //       this.haha++;
+      //       if(this.state)
+      //       this.setState({ liked: true, text: 'liked' });
+      //       console.log('clicked');
+      //     }, 
+      //     type: 'submit', 
+      //     className: 'test',
+      //   }, 
+      //   this.state.text);
+      // }
+    */
+  </script>
+</body>
+</html>

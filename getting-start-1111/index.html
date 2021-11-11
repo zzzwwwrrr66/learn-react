@@ -14,48 +14,76 @@
   <div id="root"></div>
   
   <script type="text/babel">
-    class Like_button extends React.Component {
-      haha = 1;
-      constructor(props){
-        super(props);
+    class Multiple extends React.Component {
+      constructor(prop) {
+        super(prop);
         this.state = {
-          liked : false,
-          text : 'Like',
+          num_first: Math.floor( Math.random() * 9),
+          num_second: Math.floor( Math.random() * 9),
+          input: '',
+          result_txt: '',
         }
-      }
+      };
       
-      render() {
-        return <button onClick={()=>{this.setState({ liked: true, text: 'liked' }); console.log('clicked');}} type="submit">{this.state.text}</button>;
+      click = (e) => {
+        var $input = document.querySelector('input');
+        var $result = this.state.num_first * this.state.num_second;
+        if(this.state.input.trim() != '') {
+          if( parseInt(this.state.input) == $result) {
+            this.setState({
+              num_first: Math.floor( Math.random() * 9),
+              num_second: Math.floor ( Math.random() * 9),
+              input: '',
+              result_txt: $result + ' is TRUE!!!',
+            }); 
+            this.input.focus()
+          } else {
+            this.setState((prev_state)=>{
+              return {
+                result_txt: prev_state.input + ' is FALSE!',
+                input: '',
+              }
+            });
+            this.input.focus();
+          }
+        }
+      };
+
+      change(e){
+        var $value = e.target.value;
+        this.setState({input : e.target.value});
+      };
+
+      input;
+      
+      set_ref_input(e){
+        console.log(e);
+        this.input = e;
       }
 
-      click() {
-        console.log('clicked');
-      }
+      render() {
+        console.log('rendering')
+        return (
+          <React.Fragment>
+            <p>{this.state.num_first} X {this.state.num_second} = ???</p>
+            <div>
+              <input ref={this.set_ref_input.bind(this)} type="number" value={this.state.input} onChange={this.change.bind(this)} />
+              <button onClick={this.click}>CHECK RESULT</button>
+            </div>
+            <p>{this.state.result_txt}</p>
+          </React.Fragment>
+        );
+      };
+
       
+
     }
-    
   </script>
   <script type="text/babel">
     const root = document.getElementById('root');
-    ReactDOM.render(<div><Like_button /><Like_button /><Like_button /><Like_button /></div>, root);
+    ReactDOM.render(<div><Multiple /></div>, root);
 
 
-    /* 
-    // render(){
-      //   return e('button', 
-      //   { 
-      //     onClick: () => {
-      //       this.haha++;
-      //       if(this.state)
-      //       this.setState({ liked: true, text: 'liked' });
-      //       console.log('clicked');
-      //     }, 
-      //     type: 'submit', 
-      //     className: 'test',
-      //   }, 
-      //   this.state.text);
-      // }
-    */
   </script>
 </body>
 </html>

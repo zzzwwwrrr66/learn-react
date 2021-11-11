@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>function-type</title>
+
+  <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+  
+  <script type="text/babel">
+    const Wooram = () => {
+
+      const [numFirst, setNumFirst] = React.useState(Math.floor( Math.random() * 9));
+      const [numSecond, setNumSecond] = React.useState(Math.floor( Math.random() * 9));
+      const [input, setInput] = React.useState('');
+      const [resultTxt, setResultTxt] = React.useState('');
+      const inputRef = React.useRef(null);
+
+      const change = (e) => {
+        setInput(e.target.value)
+      };
+
+      const click = (e) => {
+        let $result = numFirst * numSecond;
+        
+        if(input.trim() != '') {
+          if(parseInt(input) == $result) {
+            setNumFirst(Math.floor( Math.random() * 9), );
+            setNumSecond(Math.floor ( Math.random() * 9));
+            setInput('');
+            setResultTxt($result + ' is TRUE!!!');
+            inputRef.current.focus();
+          } else {
+            setResultTxt(input + ' is FALSE!');
+            setInput('');
+            inputRef.current.focus();
+          }
+        }
+      };
+
+      return (
+        <React.Fragment>
+          <p>{numFirst} X {numSecond} = ???</p>
+          <div>
+            <input ref={inputRef} type="number" value={input} onChange={change} />
+            <button onClick={click} >CHECK RESULT</button>
+          </div>
+          <p>{resultTxt}</p>
+        </React.Fragment>
+      );
+    }
+
+    const Haha = () => {
+      const [key, setkey] = React.useState('key-test-wooram');
+      return (
+        <p>{key}</p>
+      )
+    }
+  </script>
+  <script type="text/babel">
+    const root = document.getElementById('root');
+    ReactDOM.render(
+      <div>
+      <Wooram />
+      <Haha />
+      </div>, 
+      root
+    );
+  </script>
+</body>
+</html>
