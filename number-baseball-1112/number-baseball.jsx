@@ -52,10 +52,3 @@ const NumberBaseball = () => {
 }
 
 module.exports = NumberBaseball;
-
-
-// require 는 노드의 모듈 시스템 
-// import from 도 똑같다. ES2015 모듈 시스템 -> 노드와는 다르지만 호환사용가능하다.
-// export default 는 한곳에서 한번만, export const key1 = 'hi', export const key2 = 'hellow'는 여러번 사용가능  import { key1, key2 }
-// 리액트에서 import from 을 쓸수있는 이유는 바벨이 컴포트할때 바꿔주기 때문이다. 
-// React 의 반복문 map; -> {} 안에서 다른 반복문을사용하면 작동안한다. _().forEach , forEach 같은
