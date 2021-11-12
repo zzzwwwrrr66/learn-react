@@ -31,7 +31,7 @@
         
         if(input.trim() != '') {
           if(parseInt(input) == $result) {
-            setNumFirst(Math.floor( Math.random() * 9), );
+            setNumFirst(Math.floor( Math.random() * 9));
             setNumSecond(Math.floor ( Math.random() * 9));
             setInput('');
             setResultTxt($result + ' is TRUE!!!');
@@ -39,10 +39,13 @@
           } else {
             setResultTxt(input + ' is FALSE!');
             setInput('');
+            console.log(inputRef.current);
             inputRef.current.focus();
           }
         }
       };
+
+      console.log(inputRef.current);
 
       return (
         <React.Fragment>
@@ -57,7 +60,7 @@
     }
 
     const Haha = () => {
-      const [key, setkey] = React.useState('key-test-wooram');
+      const [key, setkey] = React.useState();
       return (
         <p>{key}</p>
       )
