@@ -4,8 +4,9 @@ const ReactDom = require('react-dom');
 const {BrowserRouter} = require('react-router-dom');
 const {Route} = require('react-router-dom');
 
-const ResponseCheck = require('./ResponseCheck');
+// const ResponseCheck = require('./ResponseCheck');
+const ResponseCheckHooks = require('./ResponseCheckHooks');
 
 ReactDom.render(
-<ResponseCheck />, 
+<ResponseCheckHooks />, 
 document.querySelector('#root'));
