@@ -1,5 +1,6 @@
 const React = require('react'); 
 const { memo } = React;
+const { useEffect } = React;
 // import React from 'react';
 // import {memo} from 'react';
 
@@ -23,7 +24,6 @@ class TryListClass extends React.PureComponent {
 }
 
 const Try = ({index, obj}) => {
-  console.log('render');
   const [propsState, setPropsState] = React.useState(obj.try);
   return (
     <li className="try-list" >{obj.try} - {obj.result}</li>

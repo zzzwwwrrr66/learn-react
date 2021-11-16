@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>response check</title>
+  <style>
+    #screen {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-size: 50px;
+      width: 100vw;
+      height: 500px;
+    }
+    #screen.clickToStart {
+      background-color: dodgerblue;
+    }
+    #screen.wait {
+      background-color: red;
+
+    }
+    #screen.click {
+      background-color: green;
+      color: #fff;
+    }
+    #screen.result {
+      background-color: dodgerblue;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="./dist/app.js"></script>
+</body>
+</html>
