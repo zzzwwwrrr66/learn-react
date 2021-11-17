@@ -23,7 +23,7 @@ const RspHooks = () => {
   const setRspInterval = React.useRef(null);
 
   useEffect(() => { 
-    setRspInterval.current = setInterval(setRsp, 1000);
+    setRspInterval.current = setInterval(setRsp, 30);
     console.log(`Component Will Unmount 시작`);
     console.log(document.getElementById('bg'));
     console.log(`Component Will Unmount 시작---------------`);
